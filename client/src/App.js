@@ -1,8 +1,8 @@
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
-import Home from './components/Home.jsx'
+import Home from './components/Home/Home.jsx'
 import Events from './components/Events/Events.jsx'
-import Athletes from './components/Athletes.jsx'
+import AllAthletes from './components/Athletes/AllAthletes.jsx'
 import Connect from './components/Connect.jsx'
 import Announcements from './components/Announcements.jsx'
 import Login from './components/Login.jsx'
@@ -27,11 +27,11 @@ function App() {
         <Routes>
           <Route path='/home' element={<Home />} />
           <Route path='/events' element={<Events />} />
-          <Route path='/athletes' element={<Athletes />} />
+          <Route path='/athletes' element={<AllAthletes />} />
           <Route path='/connect' element={<Connect />} />
           <Route path='/announcements' element={<Announcements />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/search' element={<SearchResults search={search}/>}/>
+          <Route path='/search' element={<SearchResults/>}/>
         </Routes>
       <Footer />
       </BrowserRouter>
