@@ -5,7 +5,9 @@ class CreateFighters < ActiveRecord::Migration[7.0]
       t.string :last_name
       t.string :nickname
       t.string :email
-      t.string :gym_id
+      t.string :gender
+      t.integer :gym_id
+      t.integer :division_id
       t.integer :wins
       t.integer :losses
       t.integer :draw
@@ -13,8 +15,6 @@ class CreateFighters < ActiveRecord::Migration[7.0]
       t.string :insta
       t.string :status
       t.string :password_digest
-
-      t.timestamps
     end
     add_index :fighters, :email, unique: true
   end
