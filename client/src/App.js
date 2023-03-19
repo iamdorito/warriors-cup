@@ -3,6 +3,8 @@ import Footer from './components/Footer.jsx'
 import Home from './components/Home/Home.jsx'
 import Events from './components/Events/Events.jsx'
 import AllAthletes from './components/Athletes/AllAthletes.jsx'
+import NewAthleteForm from './components/Athletes/NewAthleteForm.jsx'
+
 import Connect from './components/Connect.jsx'
 import Announcements from './components/Announcements.jsx'
 import Login from './components/Login.jsx'
@@ -28,6 +30,7 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/events' element={<Events />} />
           <Route path='/athletes' element={<AllAthletes />} />
+          <Route path='/newathlete' element={<NewAthleteForm />} />
           <Route path='/connect' element={<Connect />} />
           <Route path='/announcements' element={<Announcements />} />
           <Route path='/login' element={<Login />} />
