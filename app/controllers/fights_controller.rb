@@ -29,7 +29,7 @@ class FightsController < ApplicationController
 
     private
     def fight_params 
-        params.permit(:apartment_id, :user_id)
+        params.permit(:fighter1_id, :fighter2_id, :event_id)
     end
 
     def render_not_found

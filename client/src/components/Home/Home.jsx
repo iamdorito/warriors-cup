@@ -11,8 +11,7 @@ import image4 from '../../assets/wc-4.png';
 import '../../css/home.css'
 
 export default function Home() {
-
-  return (
+ return (
     <div className="bg-white">
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
@@ -34,7 +33,7 @@ export default function Home() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
                 href="#"
-                className="rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-yellow-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Get tickets
               </a>
@@ -64,4 +63,4 @@ export default function Home() {
              <Sponsors />
       </div>
   )
-}
+  }

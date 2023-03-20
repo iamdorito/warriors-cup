@@ -1,7 +1,10 @@
-const Footers = () => {
-    return (
-        <div>Footer</div>
-    )
-}
+import Subscribe from './Subscribe'
+export default function Footer() {
 
-export default Footers
+  return (
+    <footer className="bg-white">
+        <Subscribe/>
+        FOOTER
+    </footer>
+  )
+}

@@ -9,8 +9,14 @@
 
 p 'seeding'
 
-# divisions
+# Division.destroy_all
+# Gym.destroy_all
+# Event.destroy_all
+# Fighter.destroy_all
+# Fight.destroy_all
+# User.destroy_all
 
+# divisions
 divisions_data = [
   { name: 'Mini Flyweight', lbs: 105, kg: 47.627 },
   { name: 'Light Flyweight', lbs: 108, kg: 48.988 },
@@ -68,7 +74,6 @@ gyms_data = [
   { name: 'Warriors Nation MMA', state: 'NY' },
   { name: 'Weapons 9 Gym', state: 'NJ' }
 ]
-
 Gym.create(gyms_data)
 
 
@@ -90,6 +95,10 @@ Fighter.create!(first_name: "Marcelo",last_name: "Marino",email: "MMarino@wc.com
 Fighter.create!(first_name: "Jin",last_name: "Lee",email: "Jlee@wc.com",gender: "M",gym_id: 5,division_id: 9,wins: 0,losses: 0,draw:3,status: "active",password_digest:'1234')
 
 # fights
+Fight.create(fighter1_id:1,fighter2_id:2,event_id:1)
+Fight.create(fighter1_id:3,fighter2_id:4,event_id:1)
+Fight.create(fighter1_id:5,fighter2_id:6,event_id:1)
+Fight.create(fighter1_id:7,fighter2_id:8,event_id:1)
 
 # users
 u1 = User.create(first_name:'Dorothy',last_name:'Chau',email: 'dorito@dorito.com', password_digest: '0000')
