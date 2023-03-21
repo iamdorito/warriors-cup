@@ -5,7 +5,7 @@ import { LockClosedIcon } from '@heroicons/react/20/solid'
 
 function Profile ({user}) {
   return (
-    <h3>{user.username}</h3>
+    <h3 id="test">{user?.email}</h3>
   )
 }
 
@@ -29,8 +29,7 @@ export default function Login({ user, setUser, logout }) {
   return (
     <div className="App">
       <>
-        {!user && (<p>hi</p>)}
-        { user && <Profile user={user.first_name} /> }
+        { user && <Profile user={user} /> }
       </>
 
       <form onSubmit={handleSubmit} ref={form}>
