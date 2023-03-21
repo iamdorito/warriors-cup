@@ -37,11 +37,15 @@ export default function UpdateFighter({
     e.preventDefault();
     const formData = new FormData(formRef.current);
     const editedFighter = Object.fromEntries(formData.entries());
+    console.log('edited fighter', editedFighter)
     try {
       const req = await fetch(
         `http://localhost:3000/fighters/${selectedFighter}`, {
         method: 'PATCH',
-        body: formData
+        // body: editedFighter
+        body: JSON.stringify({
+            gym_id: editedFighter.gym_id
+        })
       });
       if (!req.ok) {
         throw new Error('Network response was not ok');

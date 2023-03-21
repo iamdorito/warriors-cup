@@ -33,8 +33,7 @@ function App() {
       let res = await req.json()
       if (res.user) setUser(res.user)
     }
-    if (Cookies.get('token')) 
-    loadUser()
+    if (Cookies.get('token')) loadUser()
   }, [])
 
   const logout = () => {

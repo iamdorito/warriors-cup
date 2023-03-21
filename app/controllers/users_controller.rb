@@ -1,17 +1,17 @@
 class UsersController < ApplicationController
     SECRET_KEY ='w@rr10r$d0r1t0$'
 	before_action :authenticate, only: [:show, :me]
+
     def me 
         render json: {user: @current_user}, status: 200
     end
+
     def index 
          render json: User.all, status: 200
     end
+
     def login 
-		p 'before findby'
         user = User.find_by!(email: params[:email])
-		p user 
-		p '-----'
         if user && user.authenticate(params[:password])
             # encode token and send it back
             token = JWT.encode({user_id: user.id, username: user.username}, SECRET_KEY, 'HS256')

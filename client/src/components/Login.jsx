@@ -34,7 +34,7 @@ export default function Login({ user, setUser, logout }) {
       </>
 
       <form onSubmit={handleSubmit} ref={form}>
-        <input name='username' type='username' placeholder="username" />
+        <input name='email' type='username' placeholder="username" />
         <input name='password' type='text' placeholder="password" />
         <button>
         LOGIN
