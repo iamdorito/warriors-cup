@@ -101,6 +101,6 @@ Fight.create(fighter1_id:5,fighter2_id:6,event_id:1)
 Fight.create(fighter1_id:7,fighter2_id:8,event_id:1)
 
 # users
-u1 = User.create(first_name:'Dorothy',last_name:'Chau',email: 'dorito@dorito.com', password_digest: '0000')
+u1 = User.create(username:'iamdorito', email: 'dorito@wc.com', password: '0000')
 
 p 'done seeding'

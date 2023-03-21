@@ -1,16 +1,20 @@
 import AthleteCard  from "./AthleteCard"
 import NewAthleteForm  from "./NewAthleteForm"
+import UpdateFighter from "./UpdateFighter"
+
 import { useState, useEffect } from 'react'
 
 export default function Athletes() {
   const [fighters, setFighters] = useState([])
   const [openNewFighterForm, setOpenNewFighterForm] = useState(false)
+  const [openUpdateFighterForm, setUpdateNewFighterForm] = useState(false)
   const [newFighter, setNewFighter] = useState({})
+  const [updateFighter, setUpdateFighter] = useState({})
 
   // GET fighters
   useEffect(() => {
     const fetchFighters = async () => {
-      let res = await fetch("http://localhost:3000/fighters");
+      let res = await fetch("/fighters");
       let fighterData = await res.json();
       setFighters(fighterData);
     };
@@ -26,19 +30,28 @@ export default function Athletes() {
     <div className="bg-white">
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">All Athletes</h2>
-        <div className="hidden lg:flex lg:flex-1 rg:justify-end">
-          <a className="text-sm font-semibold leading-6 text-gray-900" onClick={() => setOpenNewFighterForm(!openNewFighterForm)}>
+          <button className="text-sm font-semibold leading-6 text-gray-900" onClick={() => setOpenNewFighterForm(!openNewFighterForm)}>
             Add New Athlete <span aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        {openNewFighterForm ? (
-          <NewAthleteForm 
-            newFighter={newFighter} 
-            setNewFighter={setNewFighter}
-            onAddFighter={onAddFighter} />
-          ) : null}
-   
-
+          </button>
+          {openNewFighterForm ? (
+            <NewAthleteForm 
+              newFighter={newFighter}
+              setNewFighter={setNewFighter}
+              onAddFighter={onAddFighter} 
+              />
+            ) : null}
+            <br/>
+          <button className="text-sm font-semibold leading-6 text-gray-900" onClick={() => setUpdateNewFighterForm(!openUpdateFighterForm)}>
+            Update Athlete <span aria-hidden="true">&rarr;</span>
+          </button>
+          {openUpdateFighterForm ? (
+            <UpdateFighter 
+              fighters={fighters}
+              updateFighter={updateFighter}
+              setUpdateFighter={setUpdateFighter} 
+              />
+            ) : null}
+  
         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {fighters.map((fighter) => (
             <AthleteCard fighter={fighter} />

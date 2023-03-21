@@ -1,5 +1,5 @@
 class FighterSerializer < ActiveModel::Serializer
-  attributes :id, :first_name, :last_name, :nickname, :email, :gender, :wins, :losses, :draw, :headshot, :insta, :status, :gym_name, :division_name
+  attributes :id, :first_name, :last_name, :nickname, :email, :gender, :wins, :losses, :draw, :headshot, :insta,:gym_name, :division_name,:status
 
   def gym_name
     object.gym.name

@@ -29,7 +29,7 @@ class GymsController < ApplicationController
 
     private
     def gym_params 
-        params.permit(:apartment_id, :user_id)
+        params.permit(:name, :state, :insta)
     end
 
     def render_not_found

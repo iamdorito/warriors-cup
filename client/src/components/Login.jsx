@@ -9,25 +9,8 @@ function Profile ({user}) {
   )
 }
 
-export default function Login() {
-  const [user, setUser] = useState(null)
+export default function Login({ user, setUser, logout }) {
   const form = useRef()
-
-  useEffect(() => {
-    const loadUser = async () => {
-      let req = await fetch("http://localhost:3000/me", {
-        headers: {Authorization: Cookies.get('token')}
-      })
-      let res = await req.json()
-      if (res.user) setUser(res.user)
-    }
-    if (Cookies.get('token')) loadUser()
-  }, [])
-
-  const logout = () => {
-    Cookies.remove('token')
-    setUser(null)
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -38,23 +21,28 @@ export default function Login() {
     })
     let res = await req.json()
     console.log("Res", res)
+    console.log(formData)
     Cookies.set('token', res.token)
     setUser(res.user)
   }
 
   return (
     <div className="App">
-      { user && <Profile user={user} /> }
-      {/* <form onSubmit={handleSubmit} ref={form}>
-        <input name='email' type='email' placeholder="email" />
+      <>
+        {!user && (<p>hi</p>)}
+        { user && <Profile user={user.first_name} /> }
+      </>
+
+      <form onSubmit={handleSubmit} ref={form}>
+        <input name='username' type='username' placeholder="username" />
         <input name='password' type='text' placeholder="password" />
         <button>
         LOGIN
         </button>
       </form>
-      <br /> */}
+      <br /> 
       <button onClick={logout}>LOGOUT</button>
-
+{/* 
       <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
           <div>
@@ -69,7 +57,7 @@ export default function Login() {
             <p className="mt-2 text-center text-sm text-gray-600">
               Or{' '}
               <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                start your 14-day free trial
+                Register New User
               </a>
             </p>
           </div>
@@ -81,28 +69,26 @@ export default function Login() {
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="-space-y-px rounded-md shadow-sm">
               <div>
-                <label htmlFor="email-address" className="sr-only">
+                <label className="sr-only">
                   Email address
                 </label>
                 <input
-                  id="email-address"
+                  id="email"
                   name="email"
                   type="email"
-                  autoComplete="email"
                   required
                   className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   placeholder="Email address"
                 />
               </div>
               <div>
-                <label htmlFor="password" className="sr-only">
+                <label className="sr-only">
                   Password
                 </label>
                 <input
                   id="password"
                   name="password"
                   type="password"
-                  autoComplete="current-password"
                   required
                   className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   placeholder="Password"
@@ -143,7 +129,7 @@ export default function Login() {
             </div>
           </form>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

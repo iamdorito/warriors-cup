@@ -3,7 +3,7 @@ import { useState } from 'react'
 import AthleteModal from './AthleteModal'
 
 
-export default function AthleteCard({ fighter,getGymName }) {
+export default function AthleteCard({ fighter, getGymName }) {
     const [showAtheleteModal, setShowAtheleteModal] = useState(false)
 
     return (
@@ -11,10 +11,10 @@ export default function AthleteCard({ fighter,getGymName }) {
         <div 
             // onClick={() => setShowAtheleteModal(true)}
             className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
-            <img
-                src="https://1.bp.blogspot.com/-M6GLgjoNozs/XRy_Rptd_xI/AAAAAABGys8/iyqtusN2u1kekWCwaLmBduCQLDj0z8eRwCLcBGAs/s1600/AW3924710_00.gif"
-                // {fighter.headshot} 
-                alt=""
+            <img src=
+                {fighter.headshot ?
+                    fighter.headshot : "https://1.bp.blogspot.com/-M6GLgjoNozs/XRy_Rptd_xI/AAAAAABGys8/iyqtusN2u1kekWCwaLmBduCQLDj0z8eRwCLcBGAs/s1600/AW3924710_00.gif"}
+                alt="fighter image"
                 onError="https://1.bp.blogspot.com/-M6GLgjoNozs/XRy_Rptd_xI/AAAAAABGys8/iyqtusN2u1kekWCwaLmBduCQLDj0z8eRwCLcBGAs/s1600/AW3924710_00.gif"
                 className="h-full w-full object-cover object-center lg:h-full lg:w-full"
             />
@@ -31,7 +31,9 @@ export default function AthleteCard({ fighter,getGymName }) {
             </div>
 
       {showAtheleteModal ? (
-        <AthleteModal fighter={fighter} setShowAtheleteModal={setShowAtheleteModal} />
+        <AthleteModal 
+            fighter={fighter} 
+            setShowAtheleteModal={setShowAtheleteModal} />
             ) : null}
         </div>
     </div>

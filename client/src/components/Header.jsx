@@ -5,12 +5,9 @@ import {
   Bars3Icon,
   ChartPieIcon,
   CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, TvIcon, TicketIcon } from '@heroicons/react/20/solid'
-import smolLogo from '../assets/logos/small_wc_logo.png'
 import logo from '../assets/logos/wc-logo.png'
 
 const events = [
@@ -21,12 +18,10 @@ const callsToAction = [
   { name: 'Buy Tickets', href: 'https://www.threepillarpromotions.com/event-details/warriors-cup-51-road-to-one', icon: TicketIcon },
   { name: 'View Online', href: 'https://bxngtv.com/', icon: TvIcon },
 ]
-
 const athletes = [
-  { name: 'Titleholders', href: '/athletes', icon: CursorArrowRaysIcon },
+  { name: 'Titleholders', href: '/titleholders', icon: CursorArrowRaysIcon },
   { name: 'All Athletes', href: '/athletes', icon: ChartPieIcon }
 ]
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -217,7 +212,7 @@ export default function Header() {
                         />
                       </Disclosure.Button>
                       <Disclosure.Panel className="mt-2 space-y-2">
-                        {[...athletes, ...callsToAction].map((item) => (
+                        {[...athletes].map((item) => (
                           <Disclosure.Button
                             key={item.name}
                             as="a"
