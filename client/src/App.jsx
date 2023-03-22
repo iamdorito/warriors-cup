@@ -1,11 +1,11 @@
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './components/Home/Home.jsx'
-import Events from './components/Events/Events.jsx'
+import Events from './components/Events/AllEvents.jsx'
 
 import Titleholders from './components/Athletes/Titleholders'
 import AllAthletes from './components/Athletes/AllAthletes.jsx'
-import NewAthleteForm from './components/Athletes/NewAthleteForm.jsx'
+// import NewAthleteForm from './components/Athletes/NewAthleteForm.jsx'
 
 import Connect from './components/Connect.jsx'
 import Announcements from './components/Announcements.jsx'
@@ -51,7 +51,7 @@ function App() {
           <Route path='/events' element={<Events />} />
           <Route path='/titleholders' element={<Titleholders />} />
           <Route path='/athletes' element={<AllAthletes />} />
-          <Route path='/newathlete' element={<NewAthleteForm />} />
+          {/* <Route path='/newathlete' element={<NewAthleteForm />} /> */}
           <Route path='/connect' element={<Connect />} />
           <Route path='/announcements' element={<Announcements />} />
           <Route path='/login' element={<Login user={user} setUser={setUser} logout={logout} />} />

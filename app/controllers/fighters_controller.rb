@@ -17,19 +17,22 @@ class FightersController < ApplicationController
     end
 
     def destroy
-        fighter = Fighter.find_by(id: params[:id])
+        fighter = Fighter.find_by!(id: params[:id])
         fighter.destroy
         head :no_content
     end
 
     def update
-        fighter = Fighter.find_by!(id: params[:id])
+        fighter = Fighter.find_by(id: params[:id])
+        p fighter.last_name
+        fighter.update!(fighter_params)
+        p fighter.last_name
         render json: fighter, status: :ok
     end
 
     private
     def fighter_params 
-        params.permit(:first_name, :last_name, :email, :gender, :gym_id, :division_id, :wins, :losses, :draw, :status, :password_digest)
+        params.permit(:id, :first_name, :last_name, :email, :gender, :gym_id, :division_id, :wins, :losses, :draw, :status, :password_digest)
     end
 
     def render_not_found
