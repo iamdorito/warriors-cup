@@ -9,6 +9,8 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, TvIcon, TicketIcon } from '@heroicons/react/20/solid'
 import logo from '../assets/logos/wc-logo.png'
+import { Link } from 'react-router-dom'
+
 
 const events = [
   { name: 'Upcoming', href: '/events', icon: ChartPieIcon },
@@ -239,14 +241,6 @@ export default function Header() {
                   Connect
                 </a>
               </div>
-              {/* <div className="py-6">
-                <a
-                  href="/login"
-                  className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </a>
-              </div> */}
             </div>
           </div>
         </Dialog.Panel>

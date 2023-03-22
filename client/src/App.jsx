@@ -2,6 +2,7 @@ import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './components/Home/Home.jsx'
 import Events from './components/Events/AllEvents.jsx'
+// import EventDetailPage from './components/Events/EventDetailPage'
 
 import Titleholders from './components/Athletes/Titleholders'
 import AllAthletes from './components/Athletes/AllAthletes.jsx'
@@ -49,6 +50,7 @@ function App() {
         <Routes>
           <Route path='/home' element={<Home />} />
           <Route path='/events' element={<Events />} />
+          {/* <Route path='/events/promotions' element={<EventDetailPage />} /> */}
           <Route path='/titleholders' element={<Titleholders />} />
           <Route path='/athletes' element={<AllAthletes />} />
           {/* <Route path='/newathlete' element={<NewAthleteForm />} /> */}

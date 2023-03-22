@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import logo from '../../assets/logos/wc-logo.png'
 import RoadToOne from '../../assets/logos/one-show-road-to-one-v2.PNG'
+import EventDetailPage from './EventDetailPage'
 
 
-export default function EventCard({ event }) {
-    // const [showAtheleteModal, setShowAtheleteModal] = useState(false)
+export default function EventCard({ handleClick, event }) {
 
     return (
-    <div key={event.id} className="group relative">
+    <div onClick={()=>{handleClick(event)}} key={event.id} className="group relative">
         <div 
-            // onClick={() => setShowAtheleteModal(true)}
             className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
             <img src=
                 {event.poster_img ? 
@@ -28,10 +27,6 @@ export default function EventCard({ event }) {
                     {event.date} @ {event.location}
                 </p>
             </div>
-{/* 
-      {showAtheleteModal ? (
-        <AthleteModal fighter={fighter} setShowAtheleteModal={setShowAtheleteModal} />
-            ) : null} */}
         </div>
     </div>
 )}

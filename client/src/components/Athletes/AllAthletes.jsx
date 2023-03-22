@@ -9,7 +9,6 @@ export default function Athletes() {
   const [openNewFighterForm, setOpenNewFighterForm] = useState(false)
   const [openUpdateFighterForm, setUpdateNewFighterForm] = useState(false)
   const [newFighter, setNewFighter] = useState({})
-  const [updateFighter, setUpdateFighter] = useState({})
 
   // GET fighters
   useEffect(() => {
@@ -24,6 +23,19 @@ export default function Athletes() {
   // Add new fighter to list
   const onAddFighter = (newFighter) => {
     setFighters((fighters) => [...fighters, newFighter])
+  }
+
+  const onUpdateFighter = (updatedFighter) => {
+    const updatedFighterArray = fighters.map((fighter) => {
+      if (fighter.id === updatedFighter.id) {
+        return updatedFighter;
+      } else {
+        return fighter;
+      }
+    })
+    console.log(updatedFighter)
+    console.log(updatedFighterArray)
+    setFighters(updatedFighterArray)
   }
 
   return (
@@ -47,8 +59,7 @@ export default function Athletes() {
           {openUpdateFighterForm ? (
             <UpdateFighter 
               fighters={fighters}
-              updateFighter={updateFighter}
-              setUpdateFighter={setUpdateFighter} 
+              onUpdateFighter={onUpdateFighter}
               />
             ) : null}
   

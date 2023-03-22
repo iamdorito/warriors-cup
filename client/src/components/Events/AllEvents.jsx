@@ -3,30 +3,37 @@ import image2 from '../../assets/wc-2.png';
 import image3 from '../../assets/wc-3.png';
 import image4 from '../../assets/wc-4.png';
 import EventCard from './EventCard';
+import EventDetailPage from './EventDetailPage';
 
 import { useState, useEffect } from 'react'
 
-const stats = [
-  { name: 'Offices worldwide', value: '12' },
-  { name: 'Full-time colleagues', value: '300+' },
-  { name: 'Hours per week', value: '40' },
-  { name: 'Paid time off', value: 'Unlimited' },
-]
 
 export default function UpcomingEvents() {
   const [events, setEvents] = useState([])
   const [openNewEventForm, setNewEventForm] = useState(false)
   const [newEvent, setNewEvent] = useState({})
+  const [clicked, setClicked] = useState([])
+
 
   // GET events
   useEffect(() => {
     const fetchEvents = async () => {
-      let res = await fetch("http://localhost:3000/events");
+      let res = await fetch("/events");
       let eventsData = await res.json();
       setEvents(eventsData);
     };
     fetchEvents();
   },[]);
+
+  const handleClick = (event) => {
+    if (clicked.length === 0 ){
+      setClicked([event])
+    }else{
+      setClicked([])
+      setClicked([event])
+    }
+    
+  }
 
   return (
   <>
@@ -97,22 +104,14 @@ export default function UpcomingEvents() {
     <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">    
       <nav className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 xl:gap-x-8">
         {events.map((event) => (
-          <EventCard event={event} />
+          <EventCard 
+            event={event}
+            handleClick={handleClick}       
+          />
         ))}
       </nav>
     </div>
-
-    <div id="event-info">
-      <img id="event-image" src="" />
-      <div>
-        <h1 id="event-name">Title</h1>
-        <h3 id="year-released">Year Released</h3>
-        <p id="description">
-            Description
-        </p>
-      </div>
-    </div>
-
+    <EventDetailPage event={clicked}/> 
   </>
   )
 }

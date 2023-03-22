@@ -58,7 +58,7 @@ export default function AthleteModal({ fighter, setShowAtheleteModal }) {
           {/*body*/}
           <div className="relative p-6 flex-auto">
             <p className="mt-4 text-gray-500 text-lg leading-relaxed">
-              {fighter.gym_name} {fighter.division_name}
+              {fighter.gym.name} {fighter.division.name}
             </p>
             <dd className="mt-4 text-gray-500 text-lg leading-relaxed">
               {fighter.division_name}

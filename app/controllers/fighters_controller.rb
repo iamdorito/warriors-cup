@@ -23,10 +23,9 @@ class FightersController < ApplicationController
     end
 
     def update
+        #byebug
         fighter = Fighter.find_by(id: params[:id])
-        p fighter.last_name
         fighter.update!(fighter_params)
-        p fighter.last_name
         render json: fighter, status: :ok
     end
 

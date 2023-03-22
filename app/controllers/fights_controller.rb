@@ -28,8 +28,13 @@ class FightsController < ApplicationController
     end
 
     private
-    def fight_params 
-        params.permit(:fighter1_id, :fighter2_id, :event_id)
+    def fight_params
+        # prevent 2 of the same fighters in 1 fight
+        if(params[:fighter1_id] == params[:fighter2_id])
+            return 'error'
+        else
+            return params.permit(:fighter1_id, :fighter2_id, :event_id)
+        end
     end
 
     def render_not_found
