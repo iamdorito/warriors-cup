@@ -3,6 +3,7 @@ import Cookies from 'js-cookie'
 import { useEffect } from 'react'
 import { LockClosedIcon } from '@heroicons/react/20/solid'
 
+
 function Profile ({user}) {
   return (
     <h3 id="test">{user?.email}</h3>
@@ -33,7 +34,7 @@ export default function Login({ user, setUser, logout }) {
       </>
 
       <form onSubmit={handleSubmit} ref={form}>
-        <input name='email' type='username' placeholder="username" />
+        <input name='email' type='email' placeholder="email" />
         <input name='password' type='text' placeholder="password" />
         <button>
         LOGIN
