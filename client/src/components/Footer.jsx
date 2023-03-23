@@ -1,7 +1,7 @@
 import logo from '../assets/logos/wc-logo.png'
 import { Link } from 'react-router-dom'
 
-export default function Footer() {
+export default function Footer({user}) {
 
   return (
     <footer class="flex justify-center px-4 text-gray-800 bg-white dark:text-white dark:bg-gray-900">
@@ -34,9 +34,13 @@ export default function Footer() {
                   <Link to="/connect" class="px-4 text-sm text-gray-600 transition-colors duration-300 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 hover:underline">
                     Connect
                   </Link>
+                  {user ? 
+                  <span class="px-4 text-sm text-gray-600 transition-colors duration-300 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 hover:underline">
+                    {user.username}</span>
+                    : 
                   <Link to="/login" class="px-4 text-sm text-gray-600 transition-colors duration-300 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 hover:underline">
                     Athlete's Corner
-                  </Link>
+                  </Link> }
                 </div>
             </div>
         </div>

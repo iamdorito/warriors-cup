@@ -57,9 +57,10 @@ function App() {
           <Route path='/connect' element={<Connect />} />
           <Route path='/announcements' element={<Announcements />} />
           <Route path='/login' element={<Login user={user} setUser={setUser} logout={logout} />} />
-          <Route path='/search' element={<SearchResults/>}/>
+          <Route path='/search' element={<SearchResults/>} 
+          />
         </Routes>
-      <Footer />
+      <Footer user={user} />
       </BrowserRouter>
  
   )

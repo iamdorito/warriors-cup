@@ -4,6 +4,7 @@ import image3 from '../../assets/wc-3.png';
 import image4 from '../../assets/wc-4.png';
 import EventCard from './EventCard';
 import EventDetailPage from './EventDetailPage';
+import FightCard from './FightCard';
 
 import { useState, useEffect } from 'react'
 
@@ -28,21 +29,16 @@ export default function UpcomingEvents() {
   const handleClick = (event) => {
     if (clicked.length === 0 ){
       setClicked([event])
-    }else{
+    } else {
       setClicked([])
       setClicked([event])
     }
-    
   }
 
   return (
   <>
     <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
-      <img
-        src={image1}
-        alt=""
-        className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
-      />
+      <img src={image1} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center" />
       <svg
         viewBox="0 0 1097 845"
         aria-hidden="true"
@@ -100,7 +96,6 @@ export default function UpcomingEvents() {
         </div>
       </div>
     </div>
-
     <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">    
       <nav className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 xl:gap-x-8">
         {events.map((event) => (
