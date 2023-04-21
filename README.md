@@ -1,24 +1,24 @@
-# README
+# View upcoming events and rosters
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The goal of this web application is the help users learn about athletes and make informed decisions about match ups and future events they want to attend. 
 
-Things you may want to cover:
 
-* Ruby version
+# Built with:
 
-* System dependencies
+* React
 
-* Configuration
+* Ruby on Rails
 
-* Database creation
+* Tailwind CSS
 
-* Database initialization
 
-* How to run the test suite
+# Getting Started
+Prerequisites
+* Install NPM packages
+$ npm install
 
-* Services (job queues, cache servers, search engines, etc.)
+* Next, run the Rails server in one terminal:
+$ rails s
 
-* Deployment instructions
-
-* ...
+* Open another terminal and run the React server:
+$ npm start --prefix client
